@@ -2,12 +2,13 @@
 #include <iostream>
 #include <string>
 
+using namespace std;
 int main() {
-  std::ifstream file("input.txt");
-  std::string line;
+  ifstream file("input.txt");
+  string line;
   int result = 0;
 
-  while (std::getline(file, line)) {
+  while (getline(file, line)) {
     char lhs, rhs;
     int i = 0, j = line.length() - 1;
 
@@ -27,9 +28,11 @@ int main() {
       j--;
     }
 
-    std::string concatenatedString = std::string(1, lhs) + std::string(1, rhs);
-    result += std::stoi(concatenatedString);
+    string concatenatedString = string(1, lhs) + std::string(1, rhs);
+    // cout << "Final digit for line: " << concatenatedString << endl;
+
+    result += stoi(concatenatedString);
   }
-  std::cout << "\nSum of calibration numbers is: " << result << std::endl;
+  cout << "\nSum of calibration numbers is: " << result << endl;
   return 0;
 }
